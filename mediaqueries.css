@@ -1,0 +1,27 @@
+@media (max-width: 768px) {
+    .about-me {
+        flex-direction: column; /* Stack image and text vertically on smaller screens */
+        text-align: center;
+        gap: 30px; /* Reduce gap for smaller screens */
+    }
+
+    .my-image img {
+        width: 200px; /* Slightly reduce image size for tablets */
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .my-image img {
+        width: 150px; /* Further reduce image size for mobile */
+        height: 150px;
+    }
+
+    .nav-links {
+        gap: 20px; /* Reduce gap between nav links on small screens */
+    }
+
+    .logo h3 {
+        margin-left: 20px; /* Reduce margin for logo on small screens */
+    }
+}
