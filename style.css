@@ -8,7 +8,7 @@
 
 body {
     background-color: #fafafa;
-
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -33,7 +33,7 @@ header {
 }
 
 section {
-    padding: 40px 20px; /* Adds space for navbar visibility */
+    padding: 40px 10px; /* Adds space for navbar visibility */
     min-height: 100vh; /* Ensures each section fills the screen */
 }
 
@@ -47,6 +47,7 @@ section {
 .logo a {
     text-decoration: none;
     color: inherit;
+    cursor: help;
 }
 
 .nav-links {
@@ -70,13 +71,21 @@ section {
     display: block;
     width: 0;
     height: 2px;
-    background: rgb(41, 11, 124);
+    background: rgb(16, 15, 17);
     transition: width 0.3s ease-in-out;
 }
 
 .nav-links a:hover::after{
     width: 100%;
 }
+
+.hamburger i {
+    font-size: 1.3em;
+    font-weight: 600;
+    cursor: pointer;
+    display: none;
+}
+
 
 /* Hero section  */
 .hero {
@@ -110,7 +119,7 @@ section {
 
 .cta-button{
     text-decoration:none;
-    background-color:#2D336B;
+    background-color:#2d336b;
     padding: 10px;
     color: rgb(221, 212, 212);
     border-radius: 10px;
@@ -119,26 +128,6 @@ section {
 
 .cta-button:hover{
     box-shadow: 2px 3px 3px gray;
-}
-
-/* About section  */
-
-.about-section{
-    text-align: center;
-    padding-top:20px;
-}
-
-.about-section h1{
-    font-size: 40px;
-    color: #666;
-    text-shadow: 1px 1px 1px black;
-}
-
-.about-section p {
-    font-size: 18px;
-    color: #666;
-    max-width: 800px;
-    margin: 0 auto;
 }
 
 /* Skills section  */
@@ -156,9 +145,12 @@ section {
 
 .skills-section h1{
     text-align: center;
+    padding: 15px;
     font-size: 40px;
-    color: #666;
-    text-shadow: 1px 1px 1px black;
+    border-radius: 25px;
+    color: #271731;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 }
 
 .skills-section h2 {
@@ -177,7 +169,7 @@ li {
     height: fit-content;
 	color: #333;
     background-color: #fafafa;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .web-skills li, .programming li{ 
@@ -300,9 +292,14 @@ li {
 }
 
 .projects-section h1{
+    text-align: center;
+    padding: 15px;
     font-size: 40px;
-    color: #666;
-    text-shadow: 1px 1px 1px black;
+    border-radius: 25px;
+    color: #271731;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    
 }
 
 .projects-grid {
@@ -324,9 +321,56 @@ li {
 
 .contact h1{
     text-align: center;
+    padding: 15px;
     font-size: 40px;
-    color: #837f7f;
-    text-shadow: 1px 1px 1px black;
+    border-radius: 25px;
+    color: #271731;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fafafa;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input,textarea{
+    background-color:#fafafa;
+}
+
+.cta-button {
+    background-color: #2D336B;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #1a1f4b;
 }
 
 
@@ -335,8 +379,10 @@ li {
 .below {
     text-align: center;
     height: 10px;
+    
 }
 
 .below h3{
-    color: #1b1818;
+    color: #afa8a8;
+    background-color: #2D336B;
 }

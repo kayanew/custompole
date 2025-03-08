@@ -20,8 +20,11 @@
                     <h1>Portfolio</h1>
                 </a>
             </div>
+            <div class="">
+                <i class="fas fa-bars"></i>
+            </div>
             <ul class="nav-links">
-                <li class="list"><a href="#about">About</a></li>
+                <li class="list"><a href="#main">Home</a></li>
                 <li class="list"><a href="#skills">Skills</a></li>
                 <li class="list"><a href="#projects">Projects</a></li>
                 <li class="list"><a href="#contact">Contact</a></li>
@@ -39,12 +42,6 @@
                 <p>A passionate developer and Tech fanatic</p>
                 <a href="#about" class="cta-button">Learn More</a>
             </div>
-        </section>
-
-        <!-- About section  -->
-        <section id="about" class="about-section">
-            <h1>About me</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate cupiditate quas doloremque ipsum, recusandae ad optio ratione libero. Illo ex iure omnis, harum, alias sapiente ad at tenetur porro modi facere, molestias dolorum dolor reprehenderit deserunt corporis exercitationem enim quod tempore magnam? Maiores eaque tenetur nesciunt temporibus doloremque. Cumque enim expedita in, vero amet error facere minus aliquam veritatis dolores ad sunt maxime odit officiis iusto quisquam autem molestiae dignissimos et soluta atque. Ex temporibus, dicta, vitae atque quos voluptas explicabo odit aliquam sed ad autem fugit accusantium architecto voluptatem quod ea libero impedit rerum neque deleniti perspiciatis molestiae nemo?</p>
         </section>
 
         <!-- Skills section -->
@@ -104,7 +101,21 @@
          <!-- Contact section  -->
           <section id="contact" class="contact">
             <h1>Contact Me</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum laudantium nisi esse officiis sit natus culpa quasi! Reprehenderit velit vel dignissimos maxime ratione. Labore unde accusantium aliquam provident vero quasi sint hic in cupiditate repellendus perferendis magnam dolorem rerum ad at ducimus quaerat, asperiores exercitationem saepe, quisquam aperiam, cumque cum. Numquam eaque porro voluptate fugit molestiae enim error, animi repudiandae eius fugiat at explicabo nulla totam repellat sit ipsam iusto dolor pariatur non omnis, libero maiores voluptatum? Architecto quo rerum autem consectetur omnis recusandae laudantium tempora quae? Nesciunt, distinctio cumque tenetur dignissimos ullam nisi, explicabo accusantium laborum numquam, ut official</p>
+            <form action="#" method="post" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
           </section>
     </main>
 
