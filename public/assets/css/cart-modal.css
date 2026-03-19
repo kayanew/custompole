@@ -1,0 +1,159 @@
+.cart-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  max-height: 500px;
+  background-color: #fbffff;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  padding: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;           /* fully hidden — no flash on load */
+  transform: translate(-50%, -50%) scale(0.97);
+  pointer-events: none;
+  user-select: none;
+
+  /* visibility delay matches fade-out so it hides AFTER opacity reaches 0 */
+  transition: opacity 0.3s ease,
+              transform 0.3s ease,
+              visibility 0s linear 0.3s;
+}
+
+#inside-cart {
+  height: 250px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}
+
+.cart-modal.show {
+  opacity: 1;
+  visibility: visible;          /* becomes visible instantly when opening */
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+
+  /* no delay on visibility when opening — show immediately */
+  transition: opacity 0.3s ease,
+              transform 0.3s ease,
+              visibility 0s linear 0s;
+}
+
+.cart-modal-content {
+  background: white;
+  width: 80%;
+  max-width: 800px;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  animation: pop 0.3s ease;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.cart-header h2 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.close-btn {
+  color: #2c6e49;
+  background: none;
+  border: none;
+  font-size: 1.9rem;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+thead th {
+  font-size: 16px;
+  color: #777;
+  padding: 10px;
+}
+
+td {
+  text-align: center;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+td img {
+  width: 70px;
+}
+
+.qty input {
+  width: 50px;
+  padding: 5px;
+  text-align: center;
+}
+
+.delete-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #c82333;
+}
+
+.total {
+  text-align: right;
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+.total span {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.cart-btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  background-color: #f0f0f0;
+}
+
+.btn-close {
+  background: #6c757d;
+  color: white;
+}
+
+.btn-checkout {
+  background: #28a745;
+  color: white;
+}
+
+.btn-checkout:hover {
+  color: white;
+  background: #218838;
+}
+
+input.qty-input {
+  width: 30px;
+  text-align: center;
+}

@@ -1,0 +1,108 @@
+@media (max-width: 590px){
+    .top-right-icons{
+        display: none;
+    }
+
+    #line{
+        display: none;
+    }
+
+    .mobile-bottom-navigation{
+        display: flex;
+    }
+
+    .logo-container{
+        font-size: 1.5rem;
+    }
+
+
+    .search-bar{
+        margin: 12px 0px;
+        width: 80%;
+        max-width: 500px;
+    }
+
+    .header-main{
+        height: 7rem;
+        font-size: 2.3rem;
+        flex-direction: column; 
+    }
+
+    .login-modal,
+    .register-modal{
+        height: fit-content;
+        max-width: 300px;
+        
+    }
+
+    .hero-banner{
+        height: 450px;
+    }
+
+    .hbanner-content{
+        height: 165px;
+        position: absolute;
+        left: 4%;
+        top: 60%;
+        width: 22em;
+    }
+
+    .hbanner-text h1{
+        font-size: 25px;
+        margin-bottom: 5px;
+    }
+
+    .hbanner-text p{
+        font-size: 15px;
+    }
+
+    .create-btn{
+        padding: 4px 2px;
+        margin: 10px 8vw;
+    }
+
+    .category-items{
+        overflow: scroll;
+        scrollbar-width: none;
+    }
+
+    .featured-items .fitem{
+        height: 250px;
+        width: 180px;
+    }
+
+    .fitem-details a,p{
+        font-size: 14px;
+    }
+
+    .register-link{
+        font-size: 0.7rem;
+        margin: 0;
+    }
+
+    .reg-btn{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 581px)and(max-width: 808px){
+    .be-a-seller{
+        display: none;
+    }
+
+     .login-modal,
+     .register-modal{
+        max-width: 400px;
+    }
+
+    .hero-section{
+        height: auto;
+    }
+
+    .featured-items{
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+}
