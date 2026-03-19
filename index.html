@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>James Karki — Coming Soon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --ink: #0d0d0d;
+      --muted: #5c5c6e;
+      --accent: #8b5cf6;
+      --accent-light: #c4b5fd;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    html, body { height: 100%; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+      cursor: none;
+    }
+
+    /* Ambient blobs */
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(80px);
+    }
+    .blob-1 {
+      width: 480px; height: 480px;
+      top: -160px; right: -160px;
+      background: radial-gradient(circle, rgba(139,92,246,0.08), transparent 70%);
+      animation: drift 8s ease-in-out infinite alternate;
+    }
+    .blob-2 {
+      width: 380px; height: 380px;
+      bottom: -120px; left: -120px;
+      background: radial-gradient(circle, rgba(167,139,250,0.07), transparent 70%);
+      animation: drift 10s ease-in-out infinite alternate-reverse;
+    }
+    .blob-3 {
+      width: 260px; height: 260px;
+      top: 50%; left: 50%;
+      background: radial-gradient(circle, rgba(196,181,253,0.06), transparent 70%);
+      animation: driftCenter 6s ease-in-out infinite alternate;
+    }
+    @keyframes drift {
+      from { transform: translate(0, 0); }
+      to   { transform: translate(20px, 20px); }
+    }
+    @keyframes driftCenter {
+      from { transform: translate(-50%, -50%) scale(1); }
+      to   { transform: translate(-50%, -50%) scale(1.12); }
+    }
+
+    /* Custom cursor */
+    .cursor {
+      position: fixed;
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+    }
+    .cursor-ring {
+      position: fixed;
+      width: 34px; height: 34px;
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      opacity: 0.45;
+    }
+
+    /* Card */
+    .card {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 64px 56px;
+      max-width: 520px;
+      width: 90%;
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 6px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.06);
+      opacity: 0;
+      transform: translateY(28px);
+      animation: rise 0.9s 0.2s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    @keyframes rise {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(139,92,246,0.1);
+      border: 1px solid rgba(139,92,246,0.2);
+      border-radius: 50px;
+      padding: 6px 16px;
+      margin-bottom: 36px;
+    }
+    .badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: blink 1.6s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.25; }
+    }
+
+    .name {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      margin-bottom: 20px;
+    }
+    .name em { font-style: italic; color: var(--accent); }
+
+    .tagline {
+      font-size: 0.95rem;
+      color: #444;
+      line-height: 1.75;
+      margin-bottom: 44px;
+      max-width: 360px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Progress bar */
+    .progress-wrap { margin-bottom: 40px; }
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .progress-bar {
+      height: 4px;
+      background: rgba(139,92,246,0.12);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-light), var(--accent));
+      border-radius: 99px;
+      transition: width 1.8s 0.8s cubic-bezier(0.22,1,0.36,1);
+    }
+
+    /* Links */
+    .links {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 12px 24px;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+    .link-btn.primary {
+      background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+      color: #fff;
+      box-shadow: 0 8px 28px rgba(139,92,246,0.3);
+    }
+    .link-btn.primary:hover {
+      box-shadow: 0 12px 36px rgba(139,92,246,0.5);
+      transform: translateY(-2px);
+    }
+    .link-btn.ghost {
+      border: 1px solid rgba(139,92,246,0.25);
+      color: var(--muted);
+    }
+    .link-btn.ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(139,92,246,0.06);
+    }
+
+    .footer-note {
+      position: fixed;
+      bottom: 28px;
+      left: 0; right: 0;
+      text-align: center;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      opacity: 0;
+      animation: rise 0.8s 1.2s ease forwards;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="card">
+    <div class="badge">
+      <div class="badge-dot"></div>
+      Under Development
+    </div>
+
+    <h1 class="name">James<br><em>Karki.</em></h1>
+
+    <p class="tagline">My portfolio is being crafted with care. Something clean, purposeful, and worth the wait is coming soon.</p>
+
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span>Progress</span>
+        <span id="pct">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="fill"></div>
+      </div>
+    </div>
+
+    <div class="links">
+      <a href="mailto:james@example.com" class="link-btn primary">✉ Get in touch</a>
+      <a href="https://github.com" target="_blank" class="link-btn ghost">GitHub ↗</a>
+      <a href="https://linkedin.com" target="_blank" class="link-btn ghost">LinkedIn ↗</a>
+    </div>
+  </div>
+
+  <p class="footer-note">© 2025 James Karki — Check back soon</p>
+
+  <script>
+    // Cursor
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.left = mx + 'px';
+      cursor.style.top = my + 'px';
+    });
+    (function animateRing() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      ring.style.left = rx + 'px';
+      ring.style.top = ry + 'px';
+      requestAnimationFrame(animateRing);
+    })();
+
+    // Animate progress bar to 65%
+    const target = 65;
+    const fill = document.getElementById('fill');
+    const pct = document.getElementById('pct');
+    setTimeout(() => {
+      fill.style.width = target + '%';
+      let current = 0;
+      const step = () => {
+        current = Math.min(current + 1, target);
+        pct.textContent = current + '%';
+        if (current < target) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }, 800);
+  </script>
+</body>
+</html>
