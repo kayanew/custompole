@@ -1,5 +1,5 @@
 
-import portrait from '../assets/portrait.png'
+import portrait from '../assets/portrait.jpg'
 import cv from '../assets/jameskarki_cv.pdf'
 
 export const content = {
@@ -12,7 +12,7 @@ export const content = {
   cvFileName: 'James-Karki-CV.pdf',
 
   seo: {
-    title: 'James Karki - Graphic Designer & Web Developer',
+    title: 'James Karki - Portfolio',
     description:
       'Graphic designer and web developer from Kathmandu, creating clean, user-friendly digital experiences.',
   },

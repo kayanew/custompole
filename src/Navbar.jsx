@@ -9,19 +9,26 @@ export function Navbar({ activeSection, theme, onThemeToggle }) {
   const menuButtonRef = useRef(null)
   const menuPanelRef = useRef(null)
   const wasOpenRef = useRef(false)
+  const previousOverflowRef = useRef(null)
 
   useEffect(() => {
     if (!menuOpen) {
       if (wasOpenRef.current) {
         const menuButton = menuButtonRef.current
-        if (menuButton?.getClientRects().length) menuButton.focus()
-        else document.querySelector('.desktop-navigation a')?.focus()
+        if (menuButton?.getClientRects().length) {
+          menuButton.focus({ preventScroll: true })
+        } else {
+          document
+            .querySelector('.desktop-navigation a')
+            ?.focus({ preventScroll: true })
+        }
       }
       wasOpenRef.current = false
       return undefined
     }
 
     const previousOverflow = document.body.style.overflow
+    previousOverflowRef.current = previousOverflow
     wasOpenRef.current = true
     document.body.style.overflow = 'hidden'
 
@@ -70,12 +77,18 @@ export function Navbar({ activeSection, theme, onThemeToggle }) {
     return () => {
       window.cancelAnimationFrame(focusFirstItem)
       document.body.style.overflow = previousOverflow
+      previousOverflowRef.current = null
       document.removeEventListener('keydown', handleKeyDown)
       window.removeEventListener('resize', closeOnDesktopResize)
     }
   }, [menuOpen])
 
-  const closeMenu = () => setMenuOpen(false)
+  const closeMenu = () => {
+    if (previousOverflowRef.current !== null) {
+      document.body.style.overflow = previousOverflowRef.current
+    }
+    setMenuOpen(false)
+  }
 
   return (
     <header className="site-header">

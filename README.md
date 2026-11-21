@@ -1,40 +1,42 @@
-# Personal portfolio
+# James Karki — Portfolio
 
-A responsive React + Vite portfolio using Tailwind CSS, Framer Motion, and React Icons. The layout and palette follow the supplied portfolio references and Vintage Summer palette.
+A personal portfolio for James Karki, a graphic designer and web developer based in Kathmandu, Nepal. It presents his background, design and development skills, selected work, CV, and contact links.
+
+## Built with
+
+- React and Vite
+- Tailwind CSS
+- Framer Motion
+- React Icons
 
 ## Run locally
 
+Install dependencies and start the development server:
+
 ```sh
-npm install
+npm ci
 npm run dev
 ```
 
-Create and verify a production build:
+Create and preview a production build:
 
 ```sh
 npm run build
 npm run preview
 ```
 
-## Update your content
+Run the linter with `npm run lint`.
 
-- Edit your name, bio, education, skills, email, navigation, and social links in [`src/data/content.js`](./src/data/content.js).
-- Replace the sample projects, images, categories, and URLs in [`src/data/projects.js`](./src/data/projects.js).
-- Replace [`public/cv.pdf`](./public/cv.pdf) with your own resume PDF. It is currently a clearly marked placeholder.
-- Replace the portrait URL and responsive image sources in `src/data/content.js` with your own portrait.
-- Replace the placeholder metadata and social URLs before publishing.
+## Update portfolio content
 
-## Deploy
+- Edit the profile, biography, skills, contact details, and social links in [`src/data/content.js`](./src/data/content.js).
+- Edit the project cards in [`src/data/projects.js`](./src/data/projects.js).
+- Replace the CV at [`src/assets/jameskarki_cv.pdf`](./src/assets/jameskarki_cv.pdf). If you change its filename or location, update the import in `src/data/content.js`.
+- Replace the optimized portrait at [`src/assets/portrait.jpg`](./src/assets/portrait.jpg) and update its alt text in `src/data/content.js`. If you change its filename or format, update the import in `src/data/content.js`.
+- Update the page title and description in [`index.html`](./index.html).
 
-### Vercel
+## Deploy to GitHub Pages
 
-1. Import this repository in Vercel.
-2. Select **Vite** (or use the defaults).
-3. Set the build command to `npm run build` and the output directory to `dist`.
-4. Deploy. The CV is served from `/cv.pdf`.
+The workflow at [`.github/workflows/jekyll-gh-pages.yml`](./.github/workflows/jekyll-gh-pages.yml) builds and deploys the site when changes are pushed to `main`. It installs dependencies with `npm ci`, builds the `dist` directory, and deploys it to GitHub Pages.
 
-### Netlify
-
-1. Import this repository in Netlify.
-2. Set the build command to `npm run build` and the publish directory to `dist`.
-3. Deploy. The CV is served from `/cv.pdf`.
+Set the repository's Pages source to **GitHub Actions**. The workflow copies [`CNAME`](./CNAME) into the build output to preserve the configured custom domain.

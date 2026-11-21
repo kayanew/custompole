@@ -19,8 +19,8 @@ function About() {
             className="about-photo"
             src={about.portrait}
             sizes="(max-width: 767px) 90vw, 42vw"
-            width="343"
-            height="361"
+            width="900"
+            height="900"
             loading="lazy"
             decoding="async"
             alt={about.portraitAlt}
