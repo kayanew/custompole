@@ -1,16 +1,40 @@
-# React + Vite
+# Personal portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A responsive React + Vite portfolio using Tailwind CSS, Framer Motion, and React Icons. The layout and palette follow the supplied portfolio references and Vintage Summer palette.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```sh
+npm install
+npm run dev
+```
 
-## React Compiler
+Create and verify a production build:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```sh
+npm run build
+npm run preview
+```
 
-## Expanding the Oxlint configuration
+## Update your content
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- Edit your name, bio, education, skills, email, navigation, and social links in [`src/data/content.js`](./src/data/content.js).
+- Replace the sample projects, images, categories, and URLs in [`src/data/projects.js`](./src/data/projects.js).
+- Replace [`public/cv.pdf`](./public/cv.pdf) with your own resume PDF. It is currently a clearly marked placeholder.
+- Replace the portrait URL and responsive image sources in `src/data/content.js` with your own portrait.
+- Replace the placeholder metadata and social URLs before publishing.
+
+## Deploy
+
+### Vercel
+
+1. Import this repository in Vercel.
+2. Select **Vite** (or use the defaults).
+3. Set the build command to `npm run build` and the output directory to `dist`.
+4. Deploy. The CV is served from `/cv.pdf`.
+
+### Netlify
+
+1. Import this repository in Netlify.
+2. Set the build command to `npm run build` and the publish directory to `dist`.
+3. Deploy. The CV is served from `/cv.pdf`.

@@ -1,40 +1,129 @@
+@import "tailwindcss";
+
+/* The reference does not name a font; local Inter is a close, fast-loading substitute. */
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/inter-latin-wght-normal.woff2') format('woff2');
+}
+
 :root {
-  font-family: Inter, 'Segoe UI', sans-serif;
+  font-family: 'Inter Variable', Inter, 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color: #e2e8f0;
-  background-color: #020817;
+  color: #0c1618;
+  background-color: #fff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --ink: #0c1618;
+  --forest: #004643;
+  --cream: #faf4d3;
+  --gold: #d1ac00;
+  --peach: #75716e;
+  --muted: #45605b;
+  --paper: #fff;
+  --surface: hsla(0, 0%, 100%, 0.998);
+  --soft: #f6be9a;
+  --line: rgb(0 70 67 / 18%);
+  --grid-line: rgb(0 70 67 / 9%);
+  --shadow: 0 20px 60px rgb(12 22 24 / 12%);
+  --card-shadow: 0 12px 28px rgb(12 22 24 / 6%);
+}
+
+:root[data-theme='dark'] {
+  color: #faf4d3;
+  background-color: #0c1618;
+
+  --ink: #faf4d3;
+  --forest: #004643;
+  --cream: #faf4d3;
+  --gold: #d1ac00;
+  --peach: #f6be9a;
+  --muted: #bfd2c4;
+  --paper: #0c1618;
+  --surface: #102a2a;
+  --soft: #173d3a;
+  --line: rgb(250 244 211 / 18%);
+  --grid-line: rgb(250 244 211 / 8%);
+  --shadow: 0 20px 60px rgb(0 0 0 / 28%);
+  --card-shadow: none;
+}
+
+:root[data-theme='dark'] .eyebrow-index {
+  color: var(--peach);
 }
 
 * {
   box-sizing: border-box;
 }
 
-html,
-body,
-#root {
-  margin: 0;
-  min-height: 100%;
-  min-height: 100vh;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  scroll-snap-type: y proximity;
 }
 
 body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-attachment: fixed;
+  color: var(--ink);
+  transition:
+    background-color 240ms ease,
+    color 240ms ease;
+}
+
+#root {
   min-height: 100vh;
 }
 
 img {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
 }
 
 button,
-input,
-textarea,
-select {
+a {
   font: inherit;
 }
 
+button {
+  color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--forest);
+  outline-offset: 4px;
+}
+
+::selection {
+  color: var(--cream);
+  background: var(--forest);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

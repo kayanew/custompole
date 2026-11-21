@@ -3,12 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#020817" />
+    <meta name="theme-color" content="#FFFFFF" />
+    <meta name="color-scheme" content="light dark" />
     <meta
       name="description"
-      content="CustomPole is temporarily unavailable while we carry out maintenance."
+      content="Personal portfolio website."
     />
-    <title>Under Maintenance | CustomPole</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Personal portfolio" />
+    <meta
+      property="og:description"
+      content="Personal portfolio website."
+    />
+    <meta property="og:image" content="/og-image.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="preload"
+      href="/fonts/inter-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <title>Personal portfolio</title>
+    <script>
+      const savedTheme = localStorage.getItem('portfolio-theme');
+      const systemTheme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = savedTheme || systemTheme;
+    </script>
   </head>
   <body>
     <div id="root"></div>
